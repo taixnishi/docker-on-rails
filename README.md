@@ -1,3 +1,1 @@
-# Docker on Rails with Travis CI 
-
-
+# Docker on Rails with Travis CI
