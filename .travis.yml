@@ -20,11 +20,8 @@ script:
 deploy: 
   provider: script 
   script: 
-    docker build -t registyr.heroku.com/$HEROKU_APP_NAME/web -f Dockerfile.prod .;
-    # ⑵本番環境用のdockerfileをbuild
+    docker build -t registry.heroku.com/$HEROKU_APP_NAME/web -f Dockerfile.prod .;
     docker push registry.heroku.com/$HEROKU_APP_NAME/web;
-    # ⑶herokuのdockerレジストリに本番環境用imageをpush
     heroku run --app $HEROKU_APP_NAME rails db:migrate;
-    # ⑷アプリを起動
   on:
     branch: master  #デプロイはmasterにmergeされた時だけ
